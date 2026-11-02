@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixTrace — Pixel trail to the edit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Navigation Header -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <!-- PixTrace Logo: Diagonal Pixel Trail with Blue Terminal Pixel -->
+            <div class="brand-logo-container">
+                <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Diagonal connecting line -->
+                    <line x1="20" y1="80" x2="82" y2="18" stroke="rgba(255,255,255,0.75)" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Pixel 1 (Bottom-Left) -->
+                    <rect x="12" y="72" width="16" height="16" rx="4" fill="#f0f0f0" class="logo-pixel-light" />
+                    <!-- Pixel 2 -->
+                    <rect x="27" y="57" width="16" height="16" rx="4" fill="#f0f0f0" class="logo-pixel-light" />
+                    <!-- Pixel 3 -->
+                    <rect x="42" y="42" width="16" height="16" rx="4" fill="#f0f0f0" class="logo-pixel-light" />
+                    <!-- Pixel 4 -->
+                    <rect x="57" y="27" width="16" height="16" rx="4" fill="#f0f0f0" class="logo-pixel-light" />
+                    <!-- Pixel 5 (Top-Right Active Blue Pixel) -->
+                    <rect x="71" y="7" width="22" height="22" rx="5" fill="#2f80ed" class="logo-pixel-blue" />
+                </svg>
+            </div>
+            <div class="brand-text">
+                <div class="brand-title">PixTrace</div>
+                <div class="brand-subtitle">Pixel trail to the edit</div>
+            </div>
+        </div>
+
+        <!-- Center Interactive Nav Buttons (Pill Segmented Controller) -->
+        <nav class="nav-segmented-controller">
+            <button class="interactive-nav-btn active" data-tab="analysis-tab" id="btn-tab-analysis">
+                <span class="btn-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </span>
+                <span class="btn-label">Analysis Lab</span>
+                <span class="active-indicator"></span>
+            </button>
+            <button class="interactive-nav-btn" data-tab="history-tab" id="btn-tab-history">
+                <span class="btn-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </span>
+                <span class="btn-label">History</span>
+                <span class="active-indicator"></span>
+            </button>
+            <button class="interactive-nav-btn" data-tab="audit-tab" id="btn-tab-audit">
+                <span class="btn-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                </span>
+                <span class="btn-label">Audit Chain</span>
+                <span class="active-indicator"></span>
+            </button>
+        </nav>
+
+        <!-- Right Side: Interactive Day / Night Mode Toggle -->
+        <div class="nav-actions">
+            <button class="theme-toggle-btn" id="theme-toggle" title="Toggle Day/Night Mode" aria-label="Toggle theme">
+                <div class="toggle-track">
+                    <div class="toggle-thumb">
+                        <!-- Sun Icon (shown in Dark mode) -->
+                        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <!-- Moon Icon (shown in Light mode) -->
+                        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- TAB 1: ANALYSIS LAB -->
+        <section id="analysis-tab" class="tab-pane active">
+            <!-- Upload Zone -->
+            <div class="card upload-card" id="drop-zone">
+                <input type="file" id="file-input" accept="image/png, image/jpeg, image/jpg, image/webp" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon-pulse">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3>Drag &amp; Drop Image for Forensic Inspection</h3>
+                    <p class="text-muted">Supports JPEG, PNG, WebP • Max size 25MB</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('file-input').click()">
+                        Select Image File
+                    </button>
+                </div>
+
+                <!-- File Preview Bar -->
+                <div id="file-preview-bar" class="file-preview-bar hidden">
+                    <div class="file-info">
+                        <span id="preview-filename" class="font-mono text-highlight">sample.jpg</span>
+                        <span id="preview-filesize" class="badge">1.4 MB</span>
+                    </div>
+                    <button id="btn-start-analysis" class="btn btn-accent">
+                        <span>Execute Multi-Modal Analysis</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Spinner / Radar Scan -->
+            <div id="scan-loader" class="card scan-loader hidden">
+                <div class="radar-spinner"></div>
+                <h4>Executing Parallel Forensic Analysis...</h4>
+                <div class="progress-steps">
+                    <span class="step active">1. Computing SHA-256</span>
+                    <span class="step active">2. Metadata Inspection</span>
+                    <span class="step active">3. Error Level Analysis</span>
+                    <span class="step active">4. Copy-Move Clustering</span>
+                    <span class="step active">5. Deep Neural Classifier</span>
+                    <span class="step active">6. Cryptographic Chain Log</span>
+                </div>
+            </div>
+
+            <!-- Forensic Results Dashboard -->
+            <div id="results-dashboard" class="results-dashboard hidden">
+                <!-- Top Summary Banner -->
+                <div class="card summary-banner">
+                    <div class="summary-meta">
+                        <div class="meta-item">
+                            <span class="label">Target File</span>
+                            <span id="res-filename" class="value font-mono">image.jpg</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="label">SHA-256 Fingerprint</span>
+                            <span id="res-sha256" class="value font-mono text-truncate">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="label">Audit Chain Hash</span>
+                            <span id="res-audithash" class="value font-mono text-truncate">a89bf...</span>
+                        </div>
+                    </div>
+                    <button id="btn-download-pdf" class="btn btn-outline">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Download PDF Certificate
+                    </button>
+                </div>
+
+                <!-- Primary Analysis Visualizer & Score Grid -->
+                <div class="visualizer-grid">
+                    <!-- Left: Heatmap Comparison Viewer -->
+                    <div class="card viewer-card">
+                        <div class="card-header">
+                            <h4>Forensic Heatmap Inspection</h4>
+                            <span class="badge" id="view-mode-badge">Composite Tamper Overlay</span>
+                        </div>
+                        <div class="image-viewer-container">
+                            <img id="img-original" class="viewer-img" alt="Original Image">
+                            <img id="img-heatmap" class="viewer-img overlay" alt="Tamper Heatmap">
+                        </div>
+                        <div class="slider-control">
+                            <label for="opacity-slider">
+                                <span>Original (0%)</span>
+                                <span class="text-highlight">Blend Opacity: <strong id="slider-val">50%</strong></span>
+                                <span>Heatmap (100%)</span>
+                            </label>
+                            <input type="range" id="opacity-slider" min="0" max="100" value="50">
+                        </div>
+                    </div>
+
+                    <!-- Right: Trust Score & Verdict Gauge -->
+                    <div class="card score-card">
+                        <div class="card-header">
+                            <h4>Evidence Fusion Verdict</h4>
+                            <span class="badge badge-info">Algorithm: Stream Weighted</span>
+                        </div>
+                        <div class="gauge-container">
+                            <div class="circular-progress" id="score-gauge">
+                                <div class="score-value-box">
+                                    <span id="score-number" class="score-number">--</span>
+                                    <span class="score-unit">/ 100</span>
+                                </div>
+                            </div>
+                            <div id="verdict-pill" class="verdict-pill">ANALYZING</div>
+                        </div>
+
+                        <div class="explanations-box">
+                            <h5>Forensic Findings:</h5>
+                            <ul id="explanations-list"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forensic Module Cards Grid -->
+                <h3 class="section-title">Multi-Modal Detection Modules</h3>
+                <div class="modules-grid" id="modules-container">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: HISTORICAL SCANS -->
+        <section id="history-tab" class="tab-pane">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Historical Forensic Audits</h4>
+                    <button class="btn btn-sm btn-outline" onclick="loadHistory()">Refresh</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Filename</th>
+                                <th>SHA-256 Digest</th>
+                                <th>Trust Score</th>
+                                <th>Verdict</th>
+                                <th>Timestamp</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <tr><td colspan="7" class="text-center">Loading audit history...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: CRYPTOGRAPHIC AUDIT TRAIL (MINI-BLOCKCHAIN) -->
+        <section id="audit-tab" class="tab-pane">
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h4>Tamper-Evident Hash-Chained Audit Trail</h4>
+                        <p class="text-muted">Each transaction mathematically seals the preceding record's SHA-256 hash</p>
+                    </div>
+                    <button id="btn-verify-chain" class="btn btn-accent">
+                        Verify Cryptographic Integrity
+                    </button>
+                </div>
+                <div id="chain-status-banner" class="chain-banner hidden"></div>
+                <div class="table-responsive">
+                    <table class="data-table font-mono">
+                        <thead>
+                            <tr>
+                                <th>Block #</th>
+                                <th>Event Type</th>
+                                <th>Previous Hash</th>
+                                <th>Current Block Hash</th>
+                                <th>Details</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audit-table-body">
+                            <tr><td colspan="6" class="text-center font-sans">Loading chain blocks...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
